@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="二変数関数と積分領域を3次元で確認できる重積分可視化ツール">
+  <title>重積分可視化室</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="重積分可視化室 ホーム">
+      <span class="brand-mark" aria-hidden="true">∬</span>
+      <span>重積分可視化室</span>
+    </a>
+    <p>DOUBLE INTEGRAL LAB / NUMERICAL EXPLORATION</p>
+  </header>
+
+  <main class="workspace">
+    <section class="control-panel" aria-labelledby="control-title">
+      <div class="panel-heading">
+        <span class="section-number">01</span>
+        <div>
+          <h1 id="control-title">関数と領域を定義</h1>
+          <p>二変数関数と、底面上の積分領域を入力してください。</p>
+        </div>
+      </div>
+
+      <form id="graph-form">
+        <label class="field expression-field">
+          <span class="field-label">F(x, y)</span>
+          <span class="math-input-wrap">
+            <span class="math-prefix">z =</span>
+            <input id="function-input" type="text" value="4 - x^2 - y^2" spellcheck="false" autocomplete="off">
+          </span>
+        </label>
+
+        <fieldset class="range-group">
+          <legend>表示範囲</legend>
+          <label>
+            <span>x min</span>
+            <input id="x-min" type="number" value="-3" step="0.5">
+          </label>
+          <label>
+            <span>x max</span>
+            <input id="x-max" type="number" value="3" step="0.5">
+          </label>
+          <label>
+            <span>y min</span>
+            <input id="y-min" type="number" value="-3" step="0.5">
+          </label>
+          <label>
+            <span>y max</span>
+            <input id="y-max" type="number" value="3" step="0.5">
+          </label>
+        </fieldset>
+
+        <label class="field">
+          <span class="field-label">領域 D</span>
+          <span class="condition-row">
+            <span class="condition-prefix">D = { (x, y) |</span>
+            <input id="region-input" type="text" value="x^2 + y^2 <= 4" spellcheck="false" autocomplete="off">
+            <span class="condition-suffix">}</span>
+          </span>
+        </label>
+
+        <div class="syntax-note">
+          <strong>入力例</strong>
+          <span><code>sin(x) * cos(y)</code></span>
+          <span><code>√(x² + y²) / π</code></span>
+          <span><code>x >= 0 && y >= 0</code></span>
+          <span><code>abs(x) + y^2 <= 3</code></span>
+        </div>
+
+        <div id="error-message" class="error-message" role="alert" aria-live="polite"></div>
+
+        <div class="button-row">
+          <button id="visualize-button" class="secondary-button" type="submit">
+            <span aria-hidden="true">◇</span> グラフを更新
+          </button>
+          <button id="integrate-button" class="primary-button" type="button">
+            <span aria-hidden="true">∬</span> 重積分を実行
+          </button>
+        </div>
+      </form>
+
+      <div class="examples">
+        <span class="examples-label">EXAMPLES</span>
+        <button type="button" data-example="paraboloid">放物面と円</button>
+        <button type="button" data-example="wave">波面と長方形</button>
+        <button type="button" data-example="saddle">鞍型と円盤</button>
+      </div>
+    </section>
+
+    <section class="visual-panel" aria-labelledby="visual-title">
+      <div class="visual-header">
+        <div>
+          <span class="section-number">02</span>
+          <h2 id="visual-title">3D VIEW</h2>
+        </div>
+        <div class="legend" aria-label="凡例">
+          <span><i class="legend-surface"></i> F(x,y)</span>
+          <span><i class="legend-region"></i> 領域 D</span>
+          <span id="volume-legend"><i class="legend-volume"></i> 積分体積</span>
+        </div>
+      </div>
+
+      <div id="canvas-wrap" class="canvas-wrap">
+        <canvas id="graph-canvas" aria-label="関数と積分領域の3次元グラフ"></canvas>
+        <div class="canvas-instruction">DRAG TO ROTATE · WHEEL TO ZOOM</div>
+        <button id="reset-view" class="reset-view" type="button">視点を戻す</button>
+      </div>
+
+      <aside id="result-panel" class="result-panel" aria-live="polite">
+        <div class="result-heading">
+          <span>CALCULATION</span>
+          <strong id="result-status">領域 D を表示中</strong>
+        </div>
+        <div class="result-main">
+          <span class="integral-symbol">∬<sub>D</sub></span>
+          <div>
+            <span id="result-expression">(4 - x² - y²) dx dy</span>
+            <strong id="integral-result">—</strong>
+          </div>
+        </div>
+        <div class="result-details">
+          <div>
+            <span>領域の面積</span>
+            <strong id="area-result">—</strong>
+          </div>
+          <div>
+            <span>絶対体積</span>
+            <strong id="absolute-result">—</strong>
+          </div>
+          <div>
+            <span>計算法</span>
+            <strong id="method-result">中点則</strong>
+          </div>
+        </div>
+        <p class="calculation-note">表示値は数値積分による近似です。正負を含む場合、積分値と絶対体積は異なります。</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built for visual calculus</span>
+    <span>Axes: x / y on base plane, z = F(x,y)</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
