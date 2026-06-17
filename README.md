@@ -19,7 +19,7 @@ GitHub Pages以外、または独自ドメインで公開する場合は、canon
 
 ## 入力
 
-- 関数: `4 - x^2 - y^2`, `sin(x) * cos(y)` など
+- 関数: `6 - x^2 - y^2`, `sin(x) * cos(y)` など
 - 領域: `x^2 + y^2 <= 4`, `x >= 0 && y >= 0` など
 - 対応関数: `sin`, `cos`, `tan`, `sqrt`, `abs`, `exp`, `log`, `min`, `max`, `pow` ほか
 - 定数: `pi`, `e`

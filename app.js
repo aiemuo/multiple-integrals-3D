@@ -840,7 +840,7 @@ elements.canvas.addEventListener("wheel", (event) => {
 }, { passive: false });
 
 const exampleValues = {
-  paraboloid: { fn: "4 - x^2 - y^2", region: "x^2 + y^2 <= 4", range: [-3, 3, -3, 3] },
+  paraboloid: { fn: "6 - x^2 - y^2", region: "x^2 + y^2 <= 4", range: [-3, 3, -3, 3] },
   wave: { fn: "sin(x) * cos(y) + 1", region: "abs(x) <= pi && abs(y) <= pi/2", range: [-4, 4, -3, 3] },
   saddle: { fn: "x^2 - y^2", region: "x^2 + y^2 <= 4", range: [-3, 3, -3, 3] }
 };
