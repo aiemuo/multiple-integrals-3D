@@ -12,6 +12,11 @@ python -m http.server 8000
 
 ブラウザで `http://localhost:8000` を開きます。
 
+## 公開URLとSEO設定
+
+`index.html`、`robots.txt`、`sitemap.xml` では、公開URLを `https://multiple-integrals-3-d.vercel.app/` として設定しています。
+GitHub Pages以外、または独自ドメインで公開する場合は、canonical URL、OG URL、sitemap内のURL、robots.txt内のSitemap行を公開先に合わせて変更してください。
+
 ## 入力
 
 - 関数: `4 - x^2 - y^2`, `sin(x) * cos(y)` など

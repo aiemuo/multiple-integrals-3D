@@ -3,10 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="二変数関数と積分領域を3次元で確認できる重積分可視化ツール">
-  <title>重積分可視化室</title>
+  <meta name="description" content="F(x,y)の3Dグラフ、xy平面上の領域D、重積分による体積をブラウザで可視化する無料の数学学習ツールです。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="重積分可視化室">
+  <meta property="og:title" content="重積分可視化ツール | 3Dグラフ・領域D・体積計算">
+  <meta property="og:description" content="二変数関数F(x,y)とxy平面上の領域Dを入力し、曲面・積分領域・重積分の近似値を確認できます。">
+  <meta property="og:url" content="https://multiple-integrals-3-d.vercel.app/">
+  <meta property="og:image" content="https://multiple-integrals-3-d.vercel.app/preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>重積分可視化ツール | 3Dグラフ・領域D・体積計算</title>
+  <link rel="canonical" href="https://multiple-integrals-3-d.vercel.app/">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://multiple-integrals-3-d.vercel.app/#website",
+        "url": "https://multiple-integrals-3-d.vercel.app/",
+        "name": "重積分可視化室",
+        "inLanguage": "ja",
+        "description": "F(x,y)の3Dグラフ、xy平面上の領域D、重積分による体積をブラウザで可視化する数学学習サイトです。"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://multiple-integrals-3-d.vercel.app/#app",
+        "name": "重積分可視化ツール",
+        "url": "https://multiple-integrals-3-d.vercel.app/",
+        "description": "二変数関数F(x,y)とxy平面上の領域Dを入力し、3D曲面、積分領域、重積分の近似値を確認できるブラウザ用アプリです。",
+        "inLanguage": "ja",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "featureList": [
+          "F(x,y)の3Dグラフ表示",
+          "xy平面上の領域Dの可視化",
+          "重積分による体積の数値近似",
+          "√、π、連続不等式、暗黙の積を含む数式入力"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "JPY"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -69,7 +117,7 @@
           <strong>入力例</strong>
           <span><code>sin(x) * cos(y)</code></span>
           <span><code>√(x² + y²) / π</code></span>
-          <span><code>x >= 0 && y >= 0</code></span>
+          <span><code>x >= 0 &amp;&amp; y >= 0</code></span>
           <span><code>abs(x) + y^2 <= 3</code></span>
         </div>
 
@@ -143,9 +191,53 @@
     </section>
   </main>
 
+  <section class="seo-content" aria-labelledby="about-title">
+    <div>
+      <span class="section-number">03</span>
+      <h2 id="about-title">重積分可視化ツールについて</h2>
+      <p>
+        このサイトは、二変数関数 <strong>F(x,y)</strong> の曲面、xy平面を底面とする領域 <strong>D</strong>、
+        その領域上の重積分で表される体積を同じ画面で確認するための数学学習ツールです。
+        関数だけ、領域だけ、または関数と領域を同時に入力できます。
+      </p>
+    </div>
+    <div class="seo-grid">
+      <article>
+        <h3>主な用途</h3>
+        <ul>
+          <li>重積分の「領域D上の体積」という意味を3Dで確認する。</li>
+          <li>円盤、長方形、不等式で指定した領域をxy平面上に表示する。</li>
+          <li>曲面と底面領域の関係を、回転・ズームしながら観察する。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>入力できる式</h3>
+        <p>
+          例: <code>xy</code>, <code>√(x² + y²)</code>, <code>sin(x)cos(y)</code>,
+          <code>x² + y² ≤ π²</code>, <code>-1 &lt; x &lt; 1 &amp;&amp; y &gt; 0</code>。
+          <code>π</code>、<code>√</code>、上付き数字、連続不等式、暗黙の積に対応しています。
+        </p>
+      </article>
+      <article>
+        <h3>計算方法</h3>
+        <p>
+          重積分の値は、表示範囲を細かく分割した中点則による数値近似です。
+          厳密な記号計算ではないため、表示範囲や関数の形によって近似誤差が生じます。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <noscript>
+    <section class="seo-content">
+      <h2>JavaScriptが必要です</h2>
+      <p>3Dグラフ、領域D、重積分の体積可視化を利用するにはJavaScriptを有効にしてください。</p>
+    </section>
+  </noscript>
+
   <footer>
     <span>Built for visual calculus</span>
-    <span>Axes: x / y on base plane, z = F(x,y)</span>
+    <span>重積分・二変数関数・領域Dの3D可視化</span>
   </footer>
 
   <script src="app.js"></script>
