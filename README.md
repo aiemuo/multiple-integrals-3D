@@ -4,18 +4,13 @@
 
 ## 起動
 
-依存パッケージはありません。任意の静的ファイルサーバーでこのディレクトリを公開してください。
+依存パッケージはありません。ローカルで起動する場合は、次のコマンドを実行します。
 
 ```powershell
 python -m http.server 8000
 ```
 
 ブラウザで `http://localhost:8000` を開きます。
-
-## 公開URLとSEO設定
-
-`index.html`、`robots.txt`、`sitemap.xml` では、公開URLを `https://multiple-integrals-3-d.vercel.app/` として設定しています。
-GitHub Pages以外、または独自ドメインで公開する場合は、canonical URL、OG URL、sitemap内のURL、robots.txt内のSitemap行を公開先に合わせて変更してください。
 
 ## 入力
 
